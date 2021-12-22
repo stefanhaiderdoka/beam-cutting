@@ -27,13 +27,21 @@ def main():
         st.experimental_rerun()
         #raise RerunException
 
-    st.subheader('Type in your Customer Demand')
+    if len(get_data()) < 4:
 
-    length = st.number_input("Beam Length (m)")
-    demand = st.number_input("Demand in Pieces")
+        st.subheader('Type in your Customer Demand')
 
-    if st.button("Add row"):
-        get_data().append({"length": length, "open_qty": demand})
+        length = st.number_input("Beam Length (m)")
+        demand = st.number_input("Demand in Pieces")
+
+        if st.button("Add row"):
+
+            get_data().append({"length": length, "open_qty": demand})
+        
+    else:
+        
+        st.subheader('For Test-purposes input lengths are limited to max. 4 different lengths')
+        st.text('You can delete the current Customer Demand by clicking Restart in the Sidebar')
         
     cust_dem = pd.DataFrame(get_data())
 
