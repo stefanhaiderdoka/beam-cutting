@@ -27,7 +27,7 @@ def main():
         st.experimental_rerun()
         #raise RerunException
 
-    if len(get_data()) < 4:
+    if len(get_data()) < 5:
 
         st.subheader('Type in your Customer Demand')
 
